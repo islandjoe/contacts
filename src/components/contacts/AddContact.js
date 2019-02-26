@@ -8,32 +8,52 @@ class AddContact extends Component {
   state = {
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    errors: {
+
+    }
   }
 
   onChange =(event)=> this.setState({
     [event.target.name]: event.target.value
    })
 
-   onSubmit =(dispatch, event)=> {
-     event.preventDefault()
-     const newContact = {
-       id:    uuid(),
-       name:  this.state.name,
-       email: this.state.email,
-       phone: this.state.phone
-     }
+  onSubmit =(dispatch, event)=> {
+    event.preventDefault()
 
-     dispatch({
-       type: 'ADD_CONTACT',
-       payload: newContact
-     })
+    if (this.state.name === '') {
+      this.setState({ errors: {name: 'Name is required.'} })
+      return
+    }
+
+    if (this.state.email === '') {
+      this.setState({ errors: {email: 'Email is required.'} })
+      return
+    }
+
+    if (this.state.phone === '') {
+      this.setState({ errors: {phone: 'Phone is required.'} })
+      return
+    }
+
+    const newContact = {
+      id:    uuid(),
+      name:  this.state.name,
+      email: this.state.email,
+      phone: this.state.phone
+    }
+
+    dispatch({
+      type: 'ADD_CONTACT',
+      payload: newContact
+    })
 
      // Clear input form
      this.setState({
-       name: '',
+       name:  '',
        email: '',
-       phone: ''
+       phone: '',
+       errors: {}
       })
    }
 
@@ -52,21 +72,24 @@ class AddContact extends Component {
                     name="name"
                       placeholder="Enter name..."
                         value={ this.state.name }
-                          onChange={ this.onChange } />
+                          onChange={ this.onChange }
+                            error={ this.state.errors.name } />
                 <TextInputGroup
                   label="Email"
                     name="email"
                       placeholder="Enter email..."
                         type="email"
                           value={ this.state.email }
-                            onChange={ this.onChange } />
+                            onChange={ this.onChange }
+                            error={ this.state.errors.email } />
                 <TextInputGroup
                   label="Phone"
                     name="phone"
                       type="text"
                         placeholder="Enter phone..."
                           value={ this.state.phone }
-                            onChange={ this.onChange } />
+                            onChange={ this.onChange }
+                            error={ this.state.errors.phone } />
                 <input
                   type="submit"
                     value='Add Contact'
