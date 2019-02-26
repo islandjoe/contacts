@@ -27,6 +27,13 @@ class AddContact extends Component {
        type: 'ADD_CONTACT',
        payload: newContact
      })
+
+     // Clear input form
+     this.setState({
+       name: '',
+       email: '',
+       phone: ''
+      })
    }
 
   render() {
