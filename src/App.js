@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Header from './components/layout/Header'
+import Contacts from './components/contacts/Contacts'
+import AddContacts from './components/contacts/AddContact'
+import { Provider } from './context'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
+import AddContact from './components/contacts/AddContact'
 
 class App extends Component {
   render() {
     return (
+      <Provider>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header branding='My Contacts'/>
+        <div className="container">
+          <AddContact />
+          <Contacts />
+        </div>
       </div>
+      </Provider>
     );
   }
 }
