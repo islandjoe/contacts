@@ -18,7 +18,7 @@ class AddContact extends Component {
     [event.target.name]: event.target.value
    })
 
-  onSubmit =(dispatch, event)=> {
+  onSubmit = async (dispatch, event)=> {
     event.preventDefault()
 
     if (this.state.name === '') {
@@ -42,13 +42,9 @@ class AddContact extends Component {
       phone: this.state.phone
     }
 
-    axios
-      .post('https://jsonplaceholder.typicode.com/users', newContact)
-        .then(response=> dispatch({
-                            type: 'ADD_CONTACT',
-                            payload: response.data
-                        })
-        )
+    const response = axios.post('https://jsonplaceholder.typicode.com/users', newContact)
+
+    dispatch({ type: 'ADD_CONTACT', payload: response.data })
 
     // Clear input form
     this.setState({
