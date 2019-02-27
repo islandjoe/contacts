@@ -2,12 +2,14 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Consumer} from  '../../context'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 class Contact extends Component {
 
   state = {
     showContactInfo: false
   }
+
 
   onShowClick =()=> {
     this.setState({ showContactInfo: !this.state.showContactInfo })
@@ -34,6 +36,15 @@ class Contact extends Component {
                 <i className="fa fa-times"
                     style={ {cursor: 'pointer', float: 'right', color: 'red'} }
                       onClick={ this.onDeleteClick.bind(this, contact.id, value.dispatch) }  />
+                <Link to={ `contact/edit/${contact.id}` }>
+                  <i className="fa fa-pencil"
+                  style={ {
+                    cursor: 'pointer',
+                    float: 'right',
+                    color: 'black',
+                    marginRight: '1rem'
+                  } }  />
+                </Link>
               </h4>
               { this.state.showContactInfo ? (
                   <ul className='list-group'>
