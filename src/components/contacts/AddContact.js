@@ -48,15 +48,17 @@ class AddContact extends Component {
       payload: newContact
     })
 
-     // Clear input form
-     this.setState({
+    // Clear input form
+    this.setState({
        name:  '',
        email: '',
        phone: '',
        errors: {}
-      })
-   }
+    })
 
+    this.props.history.push('/')
+
+    }
   render() {
 
     return (
