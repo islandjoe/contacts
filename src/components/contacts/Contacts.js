@@ -17,9 +17,9 @@ class Contacts extends Component {
         {(value)=> {
           return (
           <>
-          <h1 className="display-4 mb-2">
-            <span className="text-danger">Contact</span> List
-          </h1>
+          <h3 className="display-4 mb-2">
+            Contact List
+          </h3>
             { value.contacts.map((contact)=> (
                 <Contact
                     key={ contact.id }

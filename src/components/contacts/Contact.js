@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {Consumer} from  '../../context'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import About from '../pages/About'
 
 class Contact extends Component {
 
@@ -28,16 +29,16 @@ class Contact extends Component {
       <Consumer>
       {(value)=> {
           return (
-            <div className='card card-body mb-3'>
-              <h4>{ contact.name }{' '}
-                <i className="fa fa-sort-down"
+            <div className='card bg-light card-body mb-3'>
+              <h4 className="card-title">{ contact.name }{' '}
+                <i className="fa fa-angle-down"
                     onClick={ this.onShowClick }
                       style={ {cursor: 'pointer'} } />
-                <i className="fa fa-times"
-                    style={ {cursor: 'pointer', float: 'right', color: 'red'} }
+                <i className="fas fa-minus"
+                    style={ {cursor: 'pointer', float: 'right'} }
                       onClick={ this.onDeleteClick.bind(this, contact.id, value.dispatch) }  />
                 <Link to={ `contact/edit/${contact.id}` }>
-                  <i className="fa fa-pencil"
+                  <i className="fas fa-user-edit"
                   style={ {
                     cursor: 'pointer',
                     float: 'right',
@@ -48,8 +49,8 @@ class Contact extends Component {
               </h4>
               { this.state.showContactInfo ? (
                   <ul className='list-group'>
-                    <li className='list-group-item'>Email: { contact.email }</li>
-                    <li className='list-group-item'>Phone: { contact.phone }</li>
+                    <li className='list-group-item'><i className="fas fa-envelope-open"/> { contact.email }</li>
+                    <li className='list-group-item'><i className="fas fa-phone"/> { contact.phone }</li>
                   </ul>
               ) : null }
             </div>

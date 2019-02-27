@@ -5,7 +5,7 @@ import classnames from  'classnames'
 const TextInputGroup =(props)=> {
   return (
     <div className="form-group">
-      <label htmlFor={ props.name }>{ props.label }</label>
+      <label htmlFor={ props.name } className="card-title">{ props.label }</label>
       <input
         type={ props.type }
           className={

@@ -63,8 +63,8 @@ class AddContact extends Component {
       <Consumer>
       {(value)=> {
         return (
-          <div className='card mb-3'>
-            <div className='card-header'>Add Contact</div>
+          <div className='card bg-light mb-3'>
+            <div className='card-header'><h4 className="card-title">Add Contact</h4></div>
             <div className="card-body">
               <form onSubmit={ this.onSubmit.bind(this, value.dispatch) }>
                 <TextInputGroup
@@ -92,8 +92,8 @@ class AddContact extends Component {
                             error={ this.state.errors.phone } />
                 <input
                   type="submit"
-                    value='Add Contact'
-                      className='btn btn-light btn-block'/>
+                    value='Add'
+                      className='btn btn-primary btn-lg btn-block'/>
               </form>
             </div>
           </div>

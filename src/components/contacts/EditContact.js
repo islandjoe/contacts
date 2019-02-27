@@ -51,12 +51,22 @@ class EditContact extends Component {
       return
     }
 
+    const updateContact = {
+      name:   this.state.name,
+      email:  this.state.email,
+      phone:  this.state.phone
+    }
+
+    const response = await axios.put(`https://jsonplaceholder.typicode.com/users/${this.props.match.params.id}`, updateContact)
+
+    dispatch({ type: 'UPDATE_CONTACT', payload: response.data })
+
     // Clear input form
     this.setState({
-       name:  '',
-       email: '',
-       phone: '',
-       errors: {}
+        name:  '',
+        email: '',
+        phone: '',
+        errors: {}
     })
 
     this.props.history.push('/')
@@ -68,8 +78,8 @@ class EditContact extends Component {
       <Consumer>
       {(value)=> {
         return (
-          <div className='card mb-3'>
-            <div className='card-header'>Edit Contact</div>
+          <div className='card bg-light mb-3'>
+            <div className='card-header'><h4 className="card-title">Edit Contact</h4></div>
             <div className="card-body">
               <form onSubmit={ this.onSubmit.bind(this, value.dispatch) }>
                 <TextInputGroup
@@ -98,7 +108,7 @@ class EditContact extends Component {
                 <input
                   type="submit"
                     value='Update'
-                      className='btn btn-light btn-block'/>
+                      className='btn btn-primary btn-lg btn-block'/>
               </form>
             </div>
           </div>
