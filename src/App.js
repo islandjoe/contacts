@@ -21,16 +21,16 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route exact
-                  path="/"
+                  path="/portfolio/contacts/"
                     component={ Contacts } />
                 <Route exact
-                  path="/contact/add"
+                  path="/portfolio/contacts/add"
                     component={ AddContact } />
                 <Route exact
-                  path="/contact/edit/:id"
+                  path="/portfolio/contacts/edit/:id"
                     component={ EditContact } />
                 <Route exact
-                  path="/about"
+                  path="/portfolio/contacts/about"
                     component={ About } />
                 <Route component={ NotFound } />
               </Switch>

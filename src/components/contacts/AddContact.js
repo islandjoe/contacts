@@ -54,7 +54,7 @@ class AddContact extends Component {
        errors: {}
     })
 
-    this.props.history.push('/')
+    this.props.history.push('/portfolio/contacts/')
 
   }
   render() {

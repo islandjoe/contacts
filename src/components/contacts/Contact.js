@@ -37,7 +37,7 @@ class Contact extends Component {
                 <i className="fas fa-minus"
                     style={ {cursor: 'pointer', float: 'right'} }
                       onClick={ this.onDeleteClick.bind(this, contact.id, value.dispatch) }  />
-                <Link to={ `contact/edit/${contact.id}` }>
+                <Link to={ `/portfolio/contacts/edit/${contact.id}` }>
                   <i className="fas fa-user-edit"
                   style={ {
                     cursor: 'pointer',
