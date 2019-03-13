@@ -1,5 +1,6 @@
-![](public/contacts.png)
+A ReactJS app that stores contact list consisting of name, email, and phone number. For this implementation, it uses JSON placeholder API service from https://jsonplaceholder.typicode.com/ to populate the app with entries.
 
+![](public/contacts.png)
 
 https://compendium.xyz/portfolio/contacts/
 
