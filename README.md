@@ -2,8 +2,6 @@ A ReactJS app that stores contact list consisting of name, email, and phone numb
 
 ![](public/contacts.png)
 
-https://compendium.xyz/portfolio/contacts/
-
 **Keywords**
 
 ReactJS: Context API & Provider state, controlled components, uncontrolled components,
